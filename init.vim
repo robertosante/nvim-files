@@ -30,6 +30,7 @@ Plug 'haydenrou/tickit.vim'
 Plug 'vifm/vifm.vim'
 Plug 'keith/rspec.vim'
 Plug 'thoughtbot/vim-rspec'
+Plug 'hwartig/vim-seeing-is-believing'
 call plug#end()
 " -- Basic Vim Config
 " Leader
@@ -244,3 +245,17 @@ map <Leader>rspecc :call RunCurrentSpecFile()<CR>
 map <Leader>rspecn :call RunNearestSpec()<CR>
 map <Leader>rspecl :call RunLastSpec()<CR>
 map <Leader>rspeca :call RunAllSpecs()<CR>
+" Seeing is believing
+augroup seeingIsBelievingSettings
+  autocmd!
+
+  autocmd FileType ruby nmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
+  autocmd FileType ruby xmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
+
+  autocmd FileType ruby nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+  autocmd FileType ruby xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+  autocmd FileType ruby imap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+
+  autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
+  autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
+augroup END
